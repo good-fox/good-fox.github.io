@@ -1,6 +1,9 @@
 function game() {
 
     var cvs = document.getElementById('canvas');
+    cvs.width = 288;
+    cvs.height = 512;
+
     var ctx = cvs.getContext('2d');
 
     var car = new Image();
@@ -65,6 +68,7 @@ function game() {
             if (carGame.y <= cars[i].y + car0.height &&
                 carGame.y + car.height >= cars[i].y &&
                 carGame.x == cars[i].x) {
+                lvl = carGame.lvl;
                 location.reload();
             }
 
@@ -79,8 +83,7 @@ function game() {
         ctx.font = '24px Verdana';
         ctx.fillText('Рахунок: ' + carGame.lvl, 60, 60);
 
-        var gameOwer = document.getElementById('gameText');
-        gameOwer.innerHTML = 'Game lvl: ' + carGame.lvl;
+        lvl = carGame.lvl;
 
         requestAnimationFrame(draw);
     }
@@ -88,3 +91,22 @@ function game() {
     bg.onload = draw;
 
 }
+
+function f1() {
+    var rtl = document.getElementById('rtl').value;
+    var rtr = document.getElementById('rtr').value;
+    var rbl = document.getElementById('rbl').value;
+    var rbr = document.getElementById('rbr').value;
+
+    var ttl = document.getElementById('ttl').value = rtl;
+    var ttr = document.getElementById('ttr').value = rtr;
+    var tbl = document.getElementById('tbl').value = rbl;
+    var tbr = document.getElementById('tbr').value = rbr;
+
+    var block = document.getElementById('block');
+
+    block.style.borderRadius = rtl + 'px ' + rtr + 'px ' + rbr + 'px ' + rbl +'px ';
+}
+
+//var gameOwer = document.getElementById('gameText');
+//gameOwer.innerHTML = 'Game lvl: ' + lvl;

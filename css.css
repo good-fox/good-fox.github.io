@@ -5,3 +5,9 @@
 #in0{
     color: aqua;
 }
+
+#block{
+    width: 300px;
+    height: 150px;
+    background: blueviolet;
+}
